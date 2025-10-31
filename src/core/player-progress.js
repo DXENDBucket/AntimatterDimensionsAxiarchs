@@ -20,6 +20,11 @@ export class PlayerProgress {
     return this._player.realities > 0;
   }
 
+  get isTotalityUnlocked() {
+    const totality = this._player.totality ?? {};
+    return Boolean(totality.unlocked) || (totality.count ?? 0) > 0;
+  }
+
   get hasFullCompletion() {
     return this._player.records?.fullGameCompletions > 0;
   }
@@ -54,6 +59,10 @@ export class PlayerProgress {
 
   static realityUnlocked() {
     return PlayerProgress.current.isRealityUnlocked;
+  }
+
+  static totalityUnlocked() {
+    return PlayerProgress.current.isTotalityUnlocked;
   }
 
   static seenAlteredSpeed() {
