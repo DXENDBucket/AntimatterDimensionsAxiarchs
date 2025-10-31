@@ -407,6 +407,11 @@ Currency.realityMachines = new class extends DecimalCurrency {
   }
 }();
 
+Currency.totalityMachines = new class extends DecimalCurrency {
+  get value() { return player.totality.machines; }
+  set value(value) { player.totality.machines = value; }
+}();
+
 Currency.perkPoints = new class extends NumberCurrency {
   get value() { return player.reality.perkPoints; }
   set value(value) { player.reality.perkPoints = value; }

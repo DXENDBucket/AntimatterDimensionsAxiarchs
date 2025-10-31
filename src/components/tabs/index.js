@@ -37,6 +37,7 @@ import ShopTab from "./shop/ShopTab";
 import SpeedrunMilestonesTab from "./speedrun-milestones/SpeedrunMilestonesTab";
 import StatisticsTab from "./statistics/StatisticsTab";
 import TeresaTab from "./celestial-teresa/TeresaTab";
+import TotalityTab from "./totality/TotalityTab";
 import TimeDilationTab from "./time-dilation/TimeDilationTab";
 import TimeDimensionsTab from "./time-dimensions/TimeDimensionsTab";
 import TimeStudiesTab from "./time-studies/TimeStudiesTab";
@@ -64,6 +65,7 @@ const TabComponents = {
   RaTab,
   LaitelaTab,
   PelleTab,
+  TotalityTab,
   AutobuyersTab,
   AutomatorTab,
   NormalChallengesTab,

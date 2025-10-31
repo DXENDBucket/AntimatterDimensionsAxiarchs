@@ -82,6 +82,9 @@ html {
   --color-reality-light: #d5ffd7;
   --color-reality-dark: #0a790c;
   --color-celestials: #5151ec;
+  --color-totality: #f28b82;
+  --color-totality-light: #ffd7d4;
+  --color-totality-dark: #c75c5a;
   --color-prestige--accent: white;
 
   --color-teresa--base: #5151ec;
@@ -752,6 +755,16 @@ button:focus {
 
 .o-tab-btn--celestial:hover {
   background: var(--color-celestials);
+}
+
+.o-tab-btn--totality {
+  color: var(--color-totality);
+  background-color: var(--color-prestige--accent);
+  border-color: var(--color-totality);
+}
+
+.o-tab-btn--totality:hover {
+  background: var(--color-totality);
 }
 
 /* #endregion tab buttons */

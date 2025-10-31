@@ -49,6 +49,11 @@ export default {
         bestRate: new Decimal(0),
         bestRarity: 0,
       },
+      totality: {
+        isUnlocked: false,
+        count: 0,
+        machines: new Decimal(0),
+      },
       matterScale: [],
       lastMatterTime: 0,
       paperclips: 0,
@@ -140,6 +145,14 @@ export default {
         reality.thisReal.setFrom(records.thisReality.realTime);
         reality.bestRate.copyFrom(bestReality.RMmin);
         reality.bestRarity = Math.max(strengthToRarity(bestReality.glyphStrength), 0);
+      }
+
+      const totality = this.totality;
+      const isTotalityUnlocked = progress.isTotalityUnlocked;
+      totality.isUnlocked = isTotalityUnlocked;
+      if (isTotalityUnlocked) {
+        totality.count = player.totality.count;
+        totality.machines.copyFrom(Currency.totalityMachines.value);
       }
       this.updateMatterScale();
 
@@ -320,6 +333,20 @@ export default {
       <div>Your best Glyph rarity is {{ formatRarity(reality.bestRarity) }}.</div>
       <br>
     </div>
+    <div
+      v-if="totality.isUnlocked"
+      class="c-stats-tab-subheader c-stats-tab-general"
+    >
+      <div class="c-stats-tab-title c-stats-tab-totality">
+        Totality
+      </div>
+      <div>You have {{ quantifyInt("Totality", totality.count) }}.</div>
+      <div>
+        You own {{ format(totality.machines, 2, 0) }}
+        {{ pluralize("Totality Machine", totality.machines.floor()) }}.
+      </div>
+      <br>
+    </div>
   </div>
 </template>
 
@@ -355,5 +382,9 @@ export default {
 
 .c-stats-tab-doomed {
   color: var(--color-pelle--base);
+}
+
+.c-stats-tab-totality {
+  color: var(--color-totality);
 }
 </style>

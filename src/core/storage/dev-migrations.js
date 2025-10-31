@@ -1153,7 +1153,7 @@ export const devMigrations = {
     },
     player => {
       player.options.hiddenSubtabBits = Array.repeat(0, 11);
-      player.options.lastOpenSubtab = Array.repeat(0, 11);
+      player.options.lastOpenSubtab = Array.repeat(0, 12);
     },
     player => {
       const highestRefinementData = [
