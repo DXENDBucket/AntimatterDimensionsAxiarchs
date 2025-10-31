@@ -1,5 +1,13 @@
 import { sha512_256 } from "js-sha512";
 
+import {
+  applyCelestialPreset,
+  applyEternityPreset,
+  applyInfinityPreset,
+  applyRealityPreset,
+  applyTotalityPreset,
+  resetTabVisibility
+} from "./devtools/progression";
 import { DC } from "./constants";
 import FullScreenAnimationHandler from "./full-screen-animation-handler";
 
@@ -508,6 +516,35 @@ dev.testGlyphs = function(config) {
 // May want to make this command in particular publicly known if automator gating is a common complaint post-release
 dev.unlockAutomator = function() {
   player.reality.automator.forceUnlock = true;
+};
+
+dev.progressToInfinity = function() {
+  applyInfinityPreset();
+};
+
+dev.progressToEternity = function() {
+  applyEternityPreset();
+};
+
+dev.progressToReality = function() {
+  applyRealityPreset();
+};
+
+dev.progressToCelestials = function() {
+  dev.giveAllAchievements();
+  applyCelestialPreset();
+};
+
+dev.progressToTotality = function() {
+  dev.giveAllAchievements();
+  applyTotalityPreset();
+};
+
+dev.unhideAllTabs = function() {
+  resetTabVisibility();
+  if (typeof GameUI !== "undefined" && typeof GameUI.update === "function") {
+    GameUI.update();
+  }
 };
 
 // This bypasses any conflict checking and forces the current save to overwrite the cloud save. This largely exists
