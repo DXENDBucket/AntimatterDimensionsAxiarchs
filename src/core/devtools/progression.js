@@ -68,13 +68,15 @@ function ensureEternityUpgrades() {
 
 function ensureTimeStudies() {
   const normal = GameDatabase.eternity.timeStudies.normal.map(study => study.id);
-  player.timestudy.studies = Array.from(new Set(normal));
+  const ec = GameDatabase.eternity.timeStudies.ec.map(study => study.id);
+  const dilation = GameDatabase.eternity.timeStudies.dilation.map(study => study.id);
+  player.timestudy.studies = Array.from(new Set([...normal, ...ec, ...dilation]));
   player.timestudy.theorem = decimal("1e7");
   player.timestudy.maxTheorem = decimal("1e7");
   player.timestudy.amBought = Math.max(player.timestudy.amBought, 1e6);
   player.timestudy.ipBought = Math.max(player.timestudy.ipBought, 1e6);
   player.timestudy.epBought = Math.max(player.timestudy.epBought, 1e6);
-  player.dilation.studies = GameDatabase.eternity.timeStudies.dilation.map(study => study.id);
+  player.dilation.studies = [...dilation];
   player.dilation.upgrades = new Set([4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
   player.dilation.rebuyables = { 1: 50, 2: 38, 3: 50, 11: 20, 12: 15, 13: 10 };
 }
@@ -157,17 +159,16 @@ function ensureCelestialBits() {
     pet.memoryUpgrades = Math.max(pet.memoryUpgrades, 10);
     pet.chunkUpgrades = Math.max(pet.chunkUpgrades, 10);
   }
-  const maxAlchemyProgress = 25000;
   player.celestials.ra.highestRefinementValue = {
-    power: maxAlchemyProgress,
-    infinity: maxAlchemyProgress,
-    time: maxAlchemyProgress,
-    replication: maxAlchemyProgress,
-    dilation: maxAlchemyProgress,
-    effarig: maxAlchemyProgress,
+    power: 1e6,
+    infinity: 1e6,
+    time: 1e6,
+    replication: 1e6,
+    dilation: 1e6,
+    effarig: 1e6,
   };
   player.celestials.ra.alchemy = player.celestials.ra.alchemy.map(resource => ({
-    amount: Math.max(resource.amount, maxAlchemyProgress),
+    amount: Math.max(resource.amount, 1e6),
     reaction: true,
   }));
   player.celestials.ra.momentumTime = Math.max(player.celestials.ra.momentumTime, 3600);
