@@ -159,17 +159,16 @@ function ensureCelestialBits() {
     pet.memoryUpgrades = Math.max(pet.memoryUpgrades, 10);
     pet.chunkUpgrades = Math.max(pet.chunkUpgrades, 10);
   }
-  const maxAlchemyProgress = 25000;
   player.celestials.ra.highestRefinementValue = {
-    power: maxAlchemyProgress,
-    infinity: maxAlchemyProgress,
-    time: maxAlchemyProgress,
-    replication: maxAlchemyProgress,
-    dilation: maxAlchemyProgress,
-    effarig: maxAlchemyProgress,
+    power: 1e6,
+    infinity: 1e6,
+    time: 1e6,
+    replication: 1e6,
+    dilation: 1e6,
+    effarig: 1e6,
   };
   player.celestials.ra.alchemy = player.celestials.ra.alchemy.map(resource => ({
-    amount: Math.max(resource.amount, maxAlchemyProgress),
+    amount: Math.max(resource.amount, 1e6),
     reaction: true,
   }));
   player.celestials.ra.momentumTime = Math.max(player.celestials.ra.momentumTime, 3600);
