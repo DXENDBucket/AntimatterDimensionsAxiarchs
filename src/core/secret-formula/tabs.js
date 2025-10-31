@@ -479,12 +479,31 @@ export const tabs = [
     ]
   },
   {
+    key: "totality",
+    name: "Totality",
+    hideAt: 2.5,
+    UIClass: "o-tab-btn--totality",
+    condition: () => PlayerProgress.totalityUnlocked(),
+    id: 10,
+    hidable: true,
+    subtabs: [
+      {
+        key: "totality-overview",
+        name: "Totality",
+        symbol: "<i class='fas fa-circle-notch'></i>",
+        component: "TotalityTab",
+        id: 0,
+        hidable: true,
+      }
+    ]
+  },
+  {
     key: "shop",
     name: "Shop",
     newUIClass: "shop",
     hideAt: 1.5,
     condition: () => Cloud.isAvailable,
-    id: 10,
+    id: 11,
     hidable: true,
     subtabs: [
       {

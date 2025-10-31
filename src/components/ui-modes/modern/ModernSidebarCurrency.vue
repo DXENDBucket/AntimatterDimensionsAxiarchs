@@ -177,4 +177,9 @@ export default {
 .o-sidebar-currency--pelle {
   color: var(--color-pelle--base);
 }
+
+.o-sidebar-currency--totality {
+  color: var(--color-totality);
+  text-shadow: 0 0 0.4rem var(--color-totality-light);
+}
 </style>

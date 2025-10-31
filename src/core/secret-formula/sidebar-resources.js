@@ -131,4 +131,12 @@ export const sidebarResources = [
     formatValue: x => format(x, 2),
     formatClass: "o-sidebar-currency--pelle",
   },
+  {
+    id: 17,
+    optionName: "Totality Machines",
+    isAvailable: () => PlayerProgress.totalityUnlocked(),
+    value: () => Currency.totalityMachines.value,
+    formatValue: x => format(x, 2),
+    formatClass: "o-sidebar-currency--totality",
+  },
 ];
