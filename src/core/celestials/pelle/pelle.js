@@ -7,6 +7,8 @@ import { Quotes } from "../quotes";
 
 import wordShift from "../../word-shift";
 
+import { Totality } from "../../totality/totality";
+
 import zalgo from "./zalgo";
 
 
@@ -168,6 +170,7 @@ export const Pelle = {
 
   gameLoop(diff) {
     if (this.isDoomed) {
+      if (Totality.tryTrigger(this.cel.records.totalAntimatter)) return;
       Currency.realityShards.add(this.realityShardGainPerSecond.times(diff).div(1000));
       PelleRifts.all.forEach(r => r.fill(diff));
     }

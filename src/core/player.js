@@ -339,6 +339,7 @@ window.player = {
       iMCapSet: [],
       laitelaSet: [],
     },
+    totalities: 0,
   },
   speedrun: {
     isUnlocked: false,
@@ -536,6 +537,11 @@ window.player = {
     },
     achTimer: 0,
     hasCheckedFilter: false,
+  },
+  totality: {
+    machines: DC.D0,
+    count: 0,
+    unlocked: false,
   },
   blackHole: Array.range(0, 2).map(id => ({
     id,
@@ -895,7 +901,7 @@ window.player = {
     hiddenTabBits: 0,
     hiddenSubtabBits: Array.repeat(0, 11),
     lastOpenTab: 0,
-    lastOpenSubtab: Array.repeat(0, 11),
+    lastOpenSubtab: Array.repeat(0, 12),
     perkLayout: 0,
     perkPhysicsEnabled: true,
     automatorEvents: {

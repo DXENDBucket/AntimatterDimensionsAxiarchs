@@ -136,6 +136,10 @@ export default {
   background-color: var(--color-celestials);
 }
 
+.o-tab-btn--totality::before {
+  background-color: var(--color-totality);
+}
+
 .o-subtab-btn--active {
   border-bottom-width: 0.5rem;
 }
